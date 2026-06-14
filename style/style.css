@@ -259,21 +259,21 @@ body {
 @media screen and (max-width: 768px) {
     /* mobile: grid layout so logo stays left, hamburger centered, links right */
     #myTopnav {
-        padding: 0.5rem 0.75rem 2.6rem; /* increase bottom padding to avoid overlap */
+        padding: 0.5rem 0.75rem 2rem;
         display: grid;
-        grid-template-columns: min-content 1fr min-content;
-        align-items: start;
-        gap: 0.5rem;
+        grid-template-columns: 1fr; /* single column so flow is consistent */
+        grid-auto-rows: auto;
+        gap: 0.35rem;
         position: relative;
-        min-height: 4.6rem;
+        min-height: auto;
     }
     .nav-brand {
-        grid-column: 1;
+        grid-column: 1 / -1; /* span full width in mobile, even when collapsed */
         display: flex;
         align-items: center;
         gap: 0.6rem;
         position: relative;
-        justify-self: start;
+        justify-self: stretch;
         align-self: start; /* keep brand pinned to top of nav */
     }
     .brand-link {
@@ -281,31 +281,46 @@ body {
         width: auto;
         justify-content: flex-start;
     }
+    /* mobile: make brand block full width and center its contents */
+    .nav-brand, .brand-link {
+        width: 100%;
+    }
+    .brand-link {
+        justify-content: center;
+        padding: 0.25rem 0.5rem;
+    }
     .brand-link img {
-        width: 4.6rem; /* slightly smaller to avoid vertical overflow */
+        width: 4.2rem; /* slightly smaller to avoid vertical overflow */
+        margin: 0;
+        display: block;
     }
     .brand-link span {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding-top: 0.25rem;
         font-size: 1rem;
-        padding: 0.35rem 0.6rem;
+        padding-bottom: 0.15rem;
     }
-    /* hamburger is a direct child of #myTopnav: always anchored at bottom center */
+    /* hamburger centered between brand and links (same place collapsed or expanded) */
     #myTopnav > a.icon {
         display: inline-flex;
         z-index: 60;
-        background: transparent;
-        border: none;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 0.8rem; /* move icon slightly lower */
-        justify-content: center;
-        align-items: center;
-        padding: 0.25rem 0.35rem;
+        position: static;
+        justify-self: center;
+        align-self: start;
+        padding: 0.45rem 0.9rem;
+        background: #fff8df;
+        border: 0.18rem solid #a04125;
+        border-radius: 0.5rem;
+        box-shadow: 0 5px 0 rgba(0,0,0,0.08);
+        color: #3b2a21;
+        margin-top: 0.25rem;
     }
     /* links on the right column (hidden until menu opened) */
     .nav-links {
-        grid-column: 3;
-        justify-self: end;
+        grid-column: 1;
+        justify-self: stretch;
         width: auto;
     }
     #myTopnav .nav-links a {
@@ -326,15 +341,10 @@ body {
     #myTopnav .nav-brand > a.icon { display: inline-flex; }
     /* ensure visible when responsive and still anchored to bottom */
     #myTopnav.responsive .nav-brand > a.icon { display: inline-flex; }
-    #myTopnav.responsive a.icon {
-        width: auto;
-        margin: 0;
-        justify-content: center;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 0.6rem;
-    }
+    /* when opened, keep the same flow: brand -> icon -> links */
+    #myTopnav.responsive .nav-brand { order: 0; }
+    #myTopnav.responsive > a.icon { order: 1; align-self: center; margin: 0.45rem auto 0; }
+    #myTopnav.responsive .nav-links { order: 2; }
     #myTopnav.responsive .nav-links {
         display: flex;
         flex-direction: column;
