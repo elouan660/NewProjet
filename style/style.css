@@ -207,8 +207,19 @@ body {
     width: 33%;
     padding: 0.5rem;
 }
+#conteneur50 {
+    width: 50%;
+    padding: 0.5rem;
+}
 
 #conteneur33 img {
+    width: 100%;
+    border: 0.2em solid #515247;
+    border-radius: 0.5rem;
+    display: block;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.13);
+}
+#conteneur50 img {
     width: 100%;
     border: 0.2em solid #515247;
     border-radius: 0.5rem;
@@ -232,6 +243,10 @@ body {
 
 #footer a:hover {
     text-decoration: underline;
+}
+/*Sinon le ratio d'image du jeu n'est pas prévisible*/
+#sm64game {
+    aspect-ratio: 16/9;
 }
 
 @media screen and (max-width: 1024px) {
