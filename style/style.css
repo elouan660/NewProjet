@@ -226,6 +226,13 @@ body {
     display: block;
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.13);
 }
+#conteneur50 iframe {
+    width: 100%;
+    border: 0.2em solid #515247;
+    border-radius: 0.5rem;
+    display: block;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.13);
+}
 
 #footer {
     background-color: #CC0000;
