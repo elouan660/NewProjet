@@ -237,7 +237,9 @@ p {
     padding: 1rem 0;
     border-top: 0.4rem solid #f7e8c1;
 }
-
+#footer p {
+    font-family: 'Press Start 2P', Arial, sans-serif;
+}
 #footer a {
     color: white;
     text-decoration: none;
