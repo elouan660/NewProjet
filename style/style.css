@@ -251,6 +251,8 @@ p {
 /*Sinon le ratio d'image du jeu n'est pas prévisible*/
 #sm64game {
     aspect-ratio: 16/9;
+    display: block;
+    overflow: hidden;
 }
 .video-grid {
     display: grid;
