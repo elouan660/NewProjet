@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../style/style.css">
     <script src="../script/main.js" defer></script>
+    <script defer src="../script/quiz.js"></script>
 </head>
 <body>
     <div id="site-wrapper">
@@ -46,57 +47,57 @@
             </a>
         </nav>
         <div id="conteneur">
-        <h1>Quiz</h1>
-            <form>
-
+            <h1>Quiz</h1>
+            <form id="marioQuiz">
                 <fieldset>
                     <legend>1. En quelle année Super Mario 64 est-il sorti pour la première fois ?</legend>
-                    <label><input type="radio" name="q1" value="1994"> 1994</label><br>
+                    <label><input type="radio" name="q1" value="1994" required> 1994</label><br>
                     <label><input type="radio" name="q1" value="1996"> 1996</label><br>
                     <label><input type="radio" name="q1" value="1998"> 1998</label>
                 </fieldset>
 
-                <br>
-
                 <fieldset>
                     <legend>2. Sur quelle console Super Mario 64 est-il sorti à l'origine ?</legend>
                     <label><input type="radio" name="q2" value="snes"> Super Nintendo</label><br>
-                    <label><input type="radio" name="q2" value="n64"> Nintendo 64</label><br>
+                    <label><input type="radio" name="q2" value="n64" required> Nintendo 64</label><br>
                     <label><input type="radio" name="q2" value="gamecube"> GameCube</label>
                 </fieldset>
-
-                <br>
 
                 <fieldset>
                     <legend>3. Quelle entreprise a développé Super Mario 64 ?</legend>
                     <label><input type="radio" name="q3" value="sega"> Sega</label><br>
-                    <label><input type="radio" name="q3" value="nintendo"> Nintendo</label><br>
+                    <label><input type="radio" name="q3" value="nintendo" required> Nintendo</label><br>
                     <label><input type="radio" name="q3" value="sony"> Sony</label>
                 </fieldset>
-
-                <br>
 
                 <fieldset>
                     <legend>4. Qui est le créateur de la série Mario ?</legend>
                     <label><input type="radio" name="q4" value="iwata"> Satoru Iwata</label><br>
-                    <label><input type="radio" name="q4" value="miyamoto"> Shigeru Miyamoto</label><br>
+                    <label><input type="radio" name="q4" value="miyamoto" required> Shigeru Miyamoto</label><br>
                     <label><input type="radio" name="q4" value="aonuma"> Eiji Aonuma</label>
                 </fieldset>
-
-                <br>
 
                 <fieldset>
                     <legend>5. Quel genre de jeu est Super Mario 64 ?</legend>
                     <label><input type="radio" name="q5" value="rpg"> RPG</label><br>
                     <label><input type="radio" name="q5" value="course"> Jeu de course</label><br>
-                    <label><input type="radio" name="q5" value="plateforme"> Jeu de plateforme 3D</label>
+                    <label><input type="radio" name="q5" value="plateforme" required> Jeu de plateforme 3D</label>
                 </fieldset>
 
-                <br>
-
                 <button type="submit">Valider</button>
-
             </form>
+
+            <!-- Zone pour afficher le résultat -->
+            <div id="quiz-result" style="
+                margin-top: 20px;
+                padding: 15px;
+                background: #fff8df;
+                border: 3px solid #CC0000;
+                border-radius: 5px;
+                display: none;">
+                <h3 style="margin: 0 0 10px 0; color: #3b2a21;">Résultat:</h3>
+                <p id="result-text" style="margin: 0; color: #3b2a21;"></p>
+            </div>
         </div>
         <footer id="footer">
             <p><a href="mailto:elouan.deschamps@utt.fr">Elouan DESCHAMPS</a> © Publié sous licence GNU GPL v3</p>
